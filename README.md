@@ -1,17 +1,18 @@
 ## GLM-OCR
 
+[中文阅读](README_zh.md)
+
 <div align="center">
 <img src=resources/logo.svg width="40%"/>
 </div>
 <p align="center">
     👋 Join our <a href="resources/WECHAT.md" target="_blank">WeChat</a> and <a href="https://discord.gg/QR7SARHRxK" target="_blank">Discord</a> community
     <br>
+    📖 Check out the GLM-OCR <a href="https://arxiv.org/abs/2603.10910" target="_blank">technical report</a>
+    <br>
     📍 Use GLM-OCR's <a href="https://docs.z.ai/guides/vlm/glm-ocr" target="_blank">API</a>
 </p>
 
-<div align="center">
-  <a href="README_zh.md">简体中文</a> | English
-</div>
 
 ### Model Introduction
 
@@ -44,7 +45,13 @@ We provide an SDK for using GLM-OCR more efficiently and conveniently.
 
 ### Install SDK
 
-> [UV Installation](https://docs.astral.sh/uv/getting-started/installation/)
+Install directly:
+
+```bash
+pip install glmocr
+```
+
+Install from source for development:
 
 ```bash
 # Install from source

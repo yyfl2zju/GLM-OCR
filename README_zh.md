@@ -1,17 +1,17 @@
 ## GLM-OCR
 
+[Read this in English](README.md)
+
 <div align="center">
 <img src=resources/logo.svg width="40%"/>
 </div>
 <p align="center">
     👋 加入我们的 <a href="resources/WECHAT.md" target="_blank">微信群</a>
     <br>
+    📖 查看 GLM-OCR <a href="https://arxiv.org/abs/2603.10910" target="_blank">技术报告</a>
+    <br>
     📍 使用 GLM-OCR 的 <a href="https://docs.bigmodel.cn/cn/guide/models/vlm/glm-ocr" target="_blank">API</a>
 </p>
-
-<div align="center">
-  简体中文 | <a href="README.md">English</a>
-</div>
 
 ### 模型介绍
 
@@ -44,10 +44,15 @@ GLM-OCR 是一款面向复杂文档理解的多模态 OCR 模型，基于 GLM-V 
 
 ### 安装 SDK
 
-> [UV 安装](https://docs.astral.sh/uv/getting-started/installation/)
+直接使用:
 
 ```bash
-# 从源码安装
+pip install glmocr
+```
+
+从源码安装, 方便修改: 
+
+```bash
 git clone https://github.com/zai-org/glm-ocr.git
 cd glm-ocr
 uv venv --python 3.12 --seed && source .venv/bin/activate
@@ -93,19 +98,20 @@ API 文档：https://docs.bigmodel.cn/cn/guide/models/vlm/glm-ocr
 安装 vLLM：
 
 ```bash
-uv pip install -U vllm --torch-backend=auto --extra-index-url https://wheels.vllm.ai/nightly
-# 或使用 Docker
 docker pull vllm/vllm-openai:nightly
+```
+
+或者使用 pip:
+
+```bash
+pip install -U "vllm>=0.17.0"
 ```
 
 启动服务：
 
 ```bash
-# 在 docker 容器中，或许不在需要 uv 来安装transformers
-uv pip install git+https://github.com/huggingface/transformers.git
-vllm serve zai-org/GLM-OCR --allowed-local-media-path / --port 8080
+pip install "transformers>=5.3.0"
 
-# 打开MTP，获得更好的推理性能
 vllm serve zai-org/GLM-OCR --allowed-local-media-path / --port 8080 --speculative-config '{"method": "mtp", "num_speculative_tokens": 1}' --served-model-name glm-ocr
 ```
 
@@ -115,19 +121,20 @@ vllm serve zai-org/GLM-OCR --allowed-local-media-path / --port 8080 --speculativ
 
 ```bash
 docker pull lmsysorg/sglang:dev
-# 或从源码安装
-uv pip install git+https://github.com/sgl-project/sglang.git#subdirectory=python
+```
+
+或者使用 pip:
+
+```bash
+pip install "sglang>=0.5.9"
 ```
 
 启动服务：
 
 ```bash
-# 在 docker 容器中，或许不在需要 uv 来安装transformers
-uv pip install git+https://github.com/huggingface/transformers.git
-python -m sglang.launch_server --model zai-org/GLM-OCR --port 8080
+pip install "transformers>=5.3.0"
 
-# 打开MTP，获得更好的推理性能
-python -m sglang.launch_server --model zai-org/GLM-OCR --port 8080 --speculative-algorithm NEXTN --speculative-num-steps 1 --served-model-name glm-ocr
+sglang serve --model zai-org/GLM-OCR --port 8080 --speculative-algorithm NEXTN --speculative-num-steps 3 --speculative-eagle-topk 1 --speculative-num-draft-tokens 4 --served-model-name glm-ocr
 ```
 
 ##### 更新配置
