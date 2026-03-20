@@ -348,6 +348,16 @@ class MyPipeline:
     pass
 ```
 
+## Star History
+
+<a href="https://www.star-history.com/?repos=zai-org%2FGLM-OCR&type=date&legend=top-left">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/image?repos=zai-org/GLM-OCR&type=date&theme=dark&legend=top-left" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/image?repos=zai-org/GLM-OCR&type=date&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/image?repos=zai-org/GLM-OCR&type=date&legend=top-left" />
+ </picture>
+</a>
+
 ## 致谢
 
 本项目受以下项目与社区的杰出工作启发：
